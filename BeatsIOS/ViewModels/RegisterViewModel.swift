@@ -12,38 +12,38 @@ struct RegisterViewModel {
     
     // MARK: - Properties
     
-    private var register: RegisterModel = RegisterModel()
+    //private var register: RegisterModel = RegisterModel()
     
     var nomeText: String {
-        return self.register.nomeText
+        return RegisterModel.nomeText
     }
     
     var subNomeText: String {
-        return self.register.subNomeText
+        return RegisterModel.subNomeText
     }
     
     var placeholderUserText: String {
-        return self.register.placeholderUserText
+        return RegisterModel.placeholderUserText
     }
     
     var placeholderPwText: String {
-        return self.register.placeholderPwText
+        return RegisterModel.placeholderPwText
     }
     
     var placeholderPwRepeatText: String {
-        return self.register.placeholderPwRepeatText
+        return RegisterModel.placeholderPwRepeatText
     }
     
     var registerButtonText: String {
-        return self.register.registerButtonText
+        return RegisterModel.registerButtonText
     }
     
     var alreadyRegisterLabelText: String {
-        return self.register.alreadyRegisterLabelText
+        return RegisterModel.alreadyRegisterLabelText
     }
     
     var alreadyRegisterButtonText: String {
-        return self.register.alreadyRegisterButtonText
+        return RegisterModel.alreadyRegisterButtonText
     }
     
     func invalidUsername(_ value: String) -> String? {

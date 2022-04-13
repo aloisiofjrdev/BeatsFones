@@ -9,10 +9,10 @@ import Foundation
 
 struct DetailsModel {
     
-    var nomeText: String = "Modelo"
-    var notaText: String = "Nota"
-    var avaliacaoText: String = "Avaliações"
-    var precoText: String = "Preço"
-    var buyButtonText: String = "Comprar"
+    static let nomeText: String = "Modelo"
+    static let notaText: String = "Nota"
+    static let avaliacaoText: String = "Avaliações"
+    static let precoText: String = "Preço"
+    static let buyButtonText: String = "Comprar"
     
 }

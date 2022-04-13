@@ -9,13 +9,13 @@ import Foundation
 
 struct LoginModel {
     
-    var nomeText: String = "Meus Beats"
-    var subNomeText: String = "Especializados em fones para deejay"
-    var placeholderUserText: String = "Usuário"
-    var placeholderPwText: String = "Senha"
-    var loginButtonText: String = "Entrar"
-    var signUpText: String = "Ainda não é cadastrado?"
-    var signUpButtonText: String = "Inscreva-se"
+    static let nomeText: String = "Meus Beats"
+    static let subNomeText: String = "Especializados em fones para deejay"
+    static let placeholderUserText: String = "Usuário"
+    static let placeholderPwText: String = "Senha"
+    static let loginButtonText: String = "Entrar"
+    static let signUpText: String = "Ainda não é cadastrado?"
+    static let signUpButtonText: String = "Inscreva-se"
     
 }
 

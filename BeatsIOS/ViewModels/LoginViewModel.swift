@@ -12,33 +12,33 @@ struct LoginsViewModel {
     
     // MARK: - Properties
     
-    private var login: LoginModel = LoginModel()
+    //private var login: LoginModel = LoginModel()
     
     var nomeText: String {
-        return self.login.nomeText
+        return LoginModel.nomeText
     }
     
     var subNomeText: String {
-        return self.login.subNomeText
+        return LoginModel.subNomeText
     }
     
     var placeholderUserText: String {
-        return self.login.placeholderUserText
+        return LoginModel.placeholderUserText
     }
     
     var placeholderPwText: String {
-        return self.login.placeholderPwText
+        return LoginModel.placeholderPwText
     }
     
     var loginButtonText: String {
-        return self.login.loginButtonText
+        return LoginModel.loginButtonText
     }
     
     var signUpText: String {
-        return self.login.signUpText
+        return LoginModel.signUpText
     }
     
     var signUpButtonText: String {
-        return self.login.signUpButtonText
+        return LoginModel.signUpButtonText
     }
 }

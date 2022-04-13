@@ -9,13 +9,13 @@ import Foundation
 
 struct RegisterModel {
     
-    var nomeText: String = "Meus Beats"
-    var subNomeText: String = "Especializados em fones para deejay"
-    var placeholderUserText: String = "Usuário"
-    var placeholderPwText: String = "Senha"
-    var placeholderPwRepeatText: String = "Repetir senha"
-    var registerButtonText: String = "Cadastrar"
-    var alreadyRegisterLabelText: String = "Já é cadastrado?"
-    var alreadyRegisterButtonText: String = "Faça login"
+    static let nomeText: String = "Meus Beats"
+    static let subNomeText: String = "Especializados em fones para deejay"
+    static let placeholderUserText: String = "Usuário"
+    static let placeholderPwText: String = "Senha"
+    static let placeholderPwRepeatText: String = "Repetir senha"
+    static let registerButtonText: String = "Cadastrar"
+    static let alreadyRegisterLabelText: String = "Já é cadastrado?"
+    static let alreadyRegisterButtonText: String = "Faça login"
     
 }

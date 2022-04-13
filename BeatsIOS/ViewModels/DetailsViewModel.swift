@@ -11,25 +11,25 @@ struct DetailsViewModel {
     
     // MARK: - Properties
     
-    private var details: DetailsModel = DetailsModel()
+    //private var details = DetailsModel()
     
     var nomeText: String {
-        return self.details.nomeText
+        return DetailsModel.nomeText
     }
     
     var notaText: String {
-        return self.details.notaText
+        return DetailsModel.notaText
     }
     
     var avaliacaoText: String {
-        return self.details.avaliacaoText
+        return DetailsModel.avaliacaoText
     }
     
     var precoText: String {
-        return self.details.precoText
+        return DetailsModel.precoText
     }
     
     var buyButtonText: String {
-        return self.details.buyButtonText
+        return DetailsModel.buyButtonText
     }
 }
