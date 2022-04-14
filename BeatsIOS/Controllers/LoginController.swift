@@ -124,9 +124,8 @@ class LoginController: UIViewController {
     }
     
     private func checkIsLoggedIn() {
-        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
         
-        if isUserLoggedIn {
+        if LoginVM.checkIsLoggedIn() {
             self.performSegue(withIdentifier: "loginSegue", sender: self)
         }
     }

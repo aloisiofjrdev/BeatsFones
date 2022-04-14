@@ -41,4 +41,14 @@ struct LoginsViewModel {
     var signUpButtonText: String {
         return LoginModel.signUpButtonText
     }
+    
+    func checkIsLoggedIn() -> Bool {
+        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
+        
+        if isUserLoggedIn {
+            return true
+        }else {
+            return false
+        }
+    }
 }
