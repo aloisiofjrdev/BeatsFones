@@ -39,5 +39,9 @@ class FonesViewModel {
             }
         }
     }
+    
+    func setLogOutUserDefaults() {
+        UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
+    }
 }
 

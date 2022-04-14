@@ -74,15 +74,11 @@ class ProductListController: UIViewController {
         
     }
     
-    private func setLogOutUserDefaults() {
-        UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
-    }
-    
     // MARK: - Actions
     
     @IBAction func logOutButtonAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
-        setLogOutUserDefaults()
+        fonesViewModel.setLogOutUserDefaults()
         
     }
     
