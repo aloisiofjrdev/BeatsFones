@@ -40,6 +40,12 @@ class RegisterViewController: UIViewController {
     private func configureUI() {
         
         self.navigationController?.navigationBar.barStyle = .black
+        configureLabels()
+        configureButtons()
+        configureTextFiedls()
+    }
+    
+    private func configureLabels() {
         
         nomeLabel.text = registerVM.nomeText
         nomeLabel.textColor = .white
@@ -51,6 +57,32 @@ class RegisterViewController: UIViewController {
         descriptionLabel.font = UIFont.boldSystemFont(ofSize: 16)
         descriptionLabel.textAlignment = .center
         
+        alreadyRegisterLabel.text = registerVM.alreadyRegisterLabelText
+        alreadyRegisterLabel.textColor = .white
+        alreadyRegisterLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        
+        userErrorLabel.textColor = .red
+        userErrorLabel.font = UIFont.boldSystemFont(ofSize: 13)
+        pwErrorLabel.textColor = .red
+        pwErrorLabel.font = UIFont.boldSystemFont(ofSize: 13)
+        pwRepeatErrorLabel.textColor = .red
+        pwRepeatErrorLabel.font = UIFont.boldSystemFont(ofSize: 13)
+        
+        let greenAttsSB: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor .green, .font: UIFont.boldSystemFont(ofSize: 15)]
+        let attibutedTitleSignin = NSMutableAttributedString(string: registerVM.alreadyRegisterButtonText, attributes: greenAttsSB )
+        alreadyRegisterButtonLabel.setAttributedTitle(attibutedTitleSignin, for: .normal)
+    }
+    
+    private func configureButtons() {
+        
+        buyButton.layer.cornerRadius = 20
+        buyButton.tintColor = .white
+        buyButton.setTitle(registerVM.registerButtonText, for: .normal)
+        buyButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+        buyButton.setTitleColor(.white, for: .normal)
+    }
+    
+    private func configureTextFiedls() {
         
         userTextField.backgroundColor = UIColor(white: 1, alpha: 0.1)
         userTextField.keyboardAppearance = .dark
@@ -68,31 +100,6 @@ class RegisterViewController: UIViewController {
         pwRepeatTextField.keyboardAppearance = .dark
         pwRepeatTextField.textColor = .white
         pwRepeatTextField.attributedPlaceholder = NSAttributedString(string: registerVM.placeholderPwRepeatText, attributes: [.foregroundColor: UIColor(white: 1, alpha: 0.7)])
-        
-        buyButton.layer.cornerRadius = 20
-        buyButton.tintColor = .white
-        buyButton.setTitle(registerVM.registerButtonText, for: .normal)
-        buyButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
-        buyButton.setTitleColor(.white, for: .normal)
-        
-        
-        
-        alreadyRegisterLabel.text = registerVM.alreadyRegisterLabelText
-        alreadyRegisterLabel.textColor = .white
-        alreadyRegisterLabel.font = UIFont.boldSystemFont(ofSize: 15)
-        
-        userErrorLabel.textColor = .red
-        userErrorLabel.font = UIFont.boldSystemFont(ofSize: 13)
-        pwErrorLabel.textColor = .red
-        pwErrorLabel.font = UIFont.boldSystemFont(ofSize: 13)
-        pwRepeatErrorLabel.textColor = .red
-        pwRepeatErrorLabel.font = UIFont.boldSystemFont(ofSize: 13)
-        
-        
-        let greenAttsSB: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor .green, .font: UIFont.boldSystemFont(ofSize: 15)]
-        let attibutedTitleSignin = NSMutableAttributedString(string: registerVM.alreadyRegisterButtonText, attributes: greenAttsSB )
-        alreadyRegisterButtonLabel.setAttributedTitle(attibutedTitleSignin, for: .normal)
-        
     }
     
     private func resetFormulario() {
