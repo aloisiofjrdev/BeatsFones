@@ -46,7 +46,12 @@ class LoginController: UIViewController {
     private func configureUI() {
         
         self.navigationController?.navigationBar.barStyle = .black
-
+        configureLabels()
+        configureButtons()
+        configureTextFields()
+    }
+    
+    private func configureLabels() {
         
         nameLabel.text = LoginVM.nomeText
         nameLabel.textColor = .white
@@ -58,6 +63,30 @@ class LoginController: UIViewController {
         descriptionLabel.font = UIFont.boldSystemFont(ofSize: 16)
         descriptionLabel.textAlignment = .center
         
+        signInLabel.text = LoginVM.signUpText
+        signInLabel.textColor = .white
+        signInLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        
+        userErrorLabel.textColor = .red
+        userErrorLabel.font = UIFont.boldSystemFont(ofSize: 13)
+        pwErrorLabel.textColor = .red
+        pwErrorLabel.font = UIFont.boldSystemFont(ofSize: 13)
+    }
+    
+    private func configureButtons() {
+        
+        loginButton.layer.cornerRadius = 20
+        loginButton.tintColor = .white
+        loginButton.setTitle(LoginVM.loginButtonText, for: .normal)
+        loginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+        loginButton.setTitleColor(.white, for: .normal)
+        
+        let greenAttsSB: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor .green, .font: UIFont.boldSystemFont(ofSize: 15)]
+        let attibutedTitleSignin = NSMutableAttributedString(string: LoginVM.signUpButtonText, attributes: greenAttsSB )
+        signInButton.setAttributedTitle(attibutedTitleSignin, for: .normal)
+    }
+    
+    private func configureTextFields() {
         
         userTextField.backgroundColor = UIColor(white: 1, alpha: 0.1)
         userTextField.keyboardAppearance = .dark
@@ -69,27 +98,6 @@ class LoginController: UIViewController {
         pwTextField.keyboardAppearance = .dark
         pwTextField.textColor = .white
         pwTextField.attributedPlaceholder = NSAttributedString(string: LoginVM.placeholderPwText, attributes: [.foregroundColor: UIColor(white: 1, alpha: 0.7)])
-        
-        loginButton.layer.cornerRadius = 20
-        loginButton.tintColor = .white
-        loginButton.setTitle(LoginVM.loginButtonText, for: .normal)
-        loginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
-        loginButton.setTitleColor(.white, for: .normal)
-        
-        
-        
-        signInLabel.text = LoginVM.signUpText
-        signInLabel.textColor = .white
-        signInLabel.font = UIFont.boldSystemFont(ofSize: 15)
-        
-        userErrorLabel.textColor = .red
-        userErrorLabel.font = UIFont.boldSystemFont(ofSize: 13)
-        pwErrorLabel.textColor = .red
-        pwErrorLabel.font = UIFont.boldSystemFont(ofSize: 13)
-        
-        let greenAttsSB: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor .green, .font: UIFont.boldSystemFont(ofSize: 15)]
-        let attibutedTitleSignin = NSMutableAttributedString(string: LoginVM.signUpButtonText, attributes: greenAttsSB )
-        signInButton.setAttributedTitle(attibutedTitleSignin, for: .normal)
     }
     
     private func resetFormulario() {
