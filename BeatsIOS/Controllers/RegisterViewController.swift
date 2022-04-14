@@ -118,13 +118,9 @@ class RegisterViewController: UIViewController {
     }
     
     private func checkForValideForm() {
-        if userErrorLabel.isHidden && pwErrorLabel.isHidden && pwRepeatErrorLabel.isHidden {
-            buyButton.isEnabled = true
-            buyButton.alpha = 1
-        } else {
-            buyButton.isEnabled = false
-            buyButton.alpha = 0.5
-        }
+        
+        buyButton.isEnabled = userErrorLabel.isHidden && pwErrorLabel.isHidden && pwRepeatErrorLabel.isHidden ?  true : false
+        buyButton.alpha = userErrorLabel.isHidden && pwErrorLabel.isHidden && pwRepeatErrorLabel.isHidden ? 1 : 0.5
     }
     
     //MARK: - Actions
