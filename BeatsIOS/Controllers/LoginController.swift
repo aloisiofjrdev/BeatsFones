@@ -114,13 +114,10 @@ class LoginController: UIViewController {
     }
     
     private func checkForValideForm() {
-        if !userTextField.text!.isEmpty && !pwTextField.text!.isEmpty {
-            loginButton.isEnabled = true
-            loginButton.alpha = 1
-        } else {
-            loginButton.isEnabled = false
-            loginButton.alpha = 0.5
-        }
+        
+        loginButton.isEnabled = !userTextField.text!.isEmpty && !pwTextField.text!.isEmpty ? true : false
+        loginButton.alpha = !userTextField.text!.isEmpty && !pwTextField.text!.isEmpty ?
+            1 : 0.5
     }
     
     private func checkIsLoggedIn() {
