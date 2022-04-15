@@ -7,8 +7,21 @@
 
 import Foundation
 
+protocol RegisterViewModelDelegate: AnyObject {
+    
+    func showAlert(title: String, message: String, buttonTitle: String)
+    func showAlertWithPop(title: String, message: String, buttonTitle: String)
+}
+
 
 struct RegisterViewModel {
+    
+    private var delegate: RegisterViewModelDelegate?
+    
+    
+    init(delegate: RegisterViewModelDelegate) {
+        self.delegate = delegate
+    }
     
     // MARK: - Properties
     
@@ -70,5 +83,22 @@ struct RegisterViewModel {
         let regularExpression = ".*[0-9]+.*"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regularExpression)
         return !predicate.evaluate(with: value)
+    }
+    
+    
+    func validationUser(pwTextField: String, pwRepeatTextField: String) -> String? {
+        
+        if pwTextField != pwRepeatTextField {
+            return "As senhas não coincidem"
+        }
+        return nil
+    }
+    
+    func setUserDefautls(userEmail: String, userPw: String) {
+        
+        UserDefaults.standard.set(userEmail, forKey: "userEmail")
+        UserDefaults.standard.set(userPw, forKey: "userPw")
+        
+        delegate?.showAlertWithPop(title: "Atenção", message: "Cadastro feito com sucesso!", buttonTitle: "Ok")
     }
 }

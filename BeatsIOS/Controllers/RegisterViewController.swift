@@ -25,7 +25,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var alreadyRegisterLabel: UILabel!
     @IBOutlet weak var alreadyRegisterButtonLabel: UIButton!
     
-    private let registerVM: RegisterViewModel = RegisterViewModel()
+    private lazy var registerVM: RegisterViewModel = RegisterViewModel(delegate: self)
     
     //MARK: - LifeCycle
     
@@ -166,6 +166,7 @@ class RegisterViewController: UIViewController {
     
     @IBAction func pwRepeatTextFieldChanged(_ sender: Any) {
         
+        guard let password = pwTextField.text else { return }
         guard let passwordRp = pwRepeatTextField.text else { return }
         
         if passwordRp.isEmpty {
@@ -181,6 +182,15 @@ class RegisterViewController: UIViewController {
             
         }
         
+        if let errorMessageValidation = registerVM.validationUser(pwTextField: password, pwRepeatTextField: passwordRp) {
+            pwRepeatErrorLabel.text = errorMessageValidation
+            pwRepeatErrorLabel.isHidden = false
+        } else{
+            pwRepeatErrorLabel.isHidden = true
+        }
+        
+        
+        
         checkForValideForm()
     }
     
@@ -188,21 +198,8 @@ class RegisterViewController: UIViewController {
         
         guard let userEmail = userTextField.text else { return }
         guard let userPw = pwTextField.text else { return }
-        guard let userPwRepeat = pwRepeatTextField.text else { return }
         
-        if userPw != userPwRepeat {
-            
-            self.displayMyAlertMessage(title: "Atenção", message: "As senhas não são iguais", buttonTitle: "Ok")
-            return
-        }
-        
-        UserDefaults.standard.set(userEmail, forKey: "userEmail")
-        UserDefaults.standard.set(userPw, forKey: "userPw")
-    
-        
-        self.displayMyAlertMessageWithActionPop(title: "Atenção", message: "Cadastro feito com sucesso!", buttonTitle: "Ok")
-        
-        
+        registerVM.setUserDefautls(userEmail: userEmail, userPw: userPw)
         resetFormulario()
         
     }
@@ -212,6 +209,17 @@ class RegisterViewController: UIViewController {
         
     }
         
+}
+
+extension RegisterViewController: RegisterViewModelDelegate {
+   
+    func showAlert(title: String, message: String, buttonTitle: String) {
+        self.displayMyAlertMessage(title: title, message: message, buttonTitle: buttonTitle)
+    }
+    
+    func showAlertWithPop(title: String, message: String, buttonTitle: String) {
+        self.displayMyAlertMessageWithActionPop(title: title, message: message, buttonTitle: buttonTitle)
+    }
 }
 
     
