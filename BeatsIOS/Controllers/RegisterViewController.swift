@@ -9,9 +9,7 @@ import Foundation
 import UIKit
 
 class RegisterViewController: UIViewController {
-    
     // MARK: - Properties
-    
     @IBOutlet weak var nomeLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var userTextField: UITextField!
@@ -24,7 +22,6 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var alreadyRegisterLabel: UILabel!
     @IBOutlet weak var alreadyRegisterButtonLabel: UIButton!
     private lazy var registerVM: RegisterViewModel = RegisterViewModel(delegate: self)
-    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +35,6 @@ class RegisterViewController: UIViewController {
         configureButtons()
         configureTextFiedls()
     }
-    
     private func configureLabels() {
         nomeLabel.text = registerVM.nomeText
         nomeLabel.textColor = .white

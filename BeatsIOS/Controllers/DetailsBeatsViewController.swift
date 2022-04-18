@@ -9,9 +9,7 @@ import Foundation
 import UIKit
 
 class DetailsBeatsViewController: UIViewController {
-    
     // MARK: - Properties
-    
     @IBOutlet weak var modelBeatsLabel: UILabel!
     @IBOutlet weak var nomeLabel: UILabel!
     @IBOutlet weak var nomeBeatsLabel: UILabel!
@@ -24,24 +22,18 @@ class DetailsBeatsViewController: UIViewController {
     @IBOutlet weak var buyButton: UIButton!
     var detailsVM: DetailsViewModel = DetailsViewModel()
     var arrayFones: [FonesModel] = []
-    
     // MARK: - LifeCycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigation()
         setup()
     }
-    
     // MARK: - Methods
-    
     private func configureNavigation() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: nil)
         navigationItem.rightBarButtonItem?.tintColor = .white
-        
     }
     func setup() {
-        
         buyButton.layer.cornerRadius = 20
         buyButton.tintColor = .white
         buyButton.setTitle(detailsVM.buyButtonText, for: .normal)

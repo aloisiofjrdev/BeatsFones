@@ -8,7 +8,6 @@
 import Foundation
 
 protocol RegisterViewModelDelegate: AnyObject {
-    
     func showAlert(title: String, message: String, buttonTitle: String)
     func showAlertWithPop(title: String, message: String, buttonTitle: String)
 }

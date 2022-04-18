@@ -15,4 +15,3 @@ struct FonesModel: Decodable {
     let image: String
     let price: String
 }
-

@@ -17,5 +17,4 @@ struct RegisterModel {
     static let registerButtonText: String = "Cadastrar"
     static let alreadyRegisterLabelText: String = "Já é cadastrado?"
     static let alreadyRegisterButtonText: String = "Faça login"
-    
 }

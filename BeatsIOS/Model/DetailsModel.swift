@@ -14,5 +14,4 @@ struct DetailsModel {
     static let avaliacaoText: String = "Avaliações"
     static let precoText: String = "Preço"
     static let buyButtonText: String = "Comprar"
-    
 }

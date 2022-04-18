@@ -8,7 +8,6 @@
 import Foundation
 
 struct DetailsViewModel {
-    
     // MARK: - Properties
     var nomeText: String {
         return DetailsModel.nomeText

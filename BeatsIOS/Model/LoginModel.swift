@@ -8,7 +8,6 @@
 import Foundation
 
 struct LoginModel {
-    
     static let nomeText: String = "Meus Beats"
     static let subNomeText: String = "Especializados em fones para deejay"
     static let placeholderUserText: String = "Usuário"
@@ -16,7 +15,4 @@ struct LoginModel {
     static let loginButtonText: String = "Entrar"
     static let signUpText: String = "Ainda não é cadastrado?"
     static let signUpButtonText: String = "Inscreva-se"
-    
 }
-
-
