@@ -14,7 +14,6 @@ class ProductListController: UIViewController {
     //MARK: - Properties
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var tableHeight: NSLayoutConstraint!
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var doubtButton: UIButton!
     
@@ -34,24 +33,11 @@ class ProductListController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-        self.tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         self.tableView.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
-        self.tableView.removeObserver(self, forKeyPath: "contentSize")
-    }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == "contentSize" {
-            if object is UITableView {
-                if let newvalue = change?[.newKey]{
-                    let newsize = newvalue as! CGSize
-                    self.tableHeight.constant = newsize.width
-                }
-            }
-        }
     }
     
     //MARK: - Methods
@@ -90,14 +76,6 @@ extension ProductListController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fonesViewModel.fones.count
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
