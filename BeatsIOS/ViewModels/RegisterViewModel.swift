@@ -13,52 +13,36 @@ protocol RegisterViewModelDelegate: AnyObject {
     func showAlertWithPop(title: String, message: String, buttonTitle: String)
 }
 
-
 struct RegisterViewModel {
-    
     private var delegate: RegisterViewModelDelegate?
-    
-    
     init(delegate: RegisterViewModelDelegate) {
         self.delegate = delegate
     }
-    
     // MARK: - Properties
-    
-    //private var register: RegisterModel = RegisterModel()
-    
     var nomeText: String {
         return RegisterModel.nomeText
     }
-    
     var subNomeText: String {
         return RegisterModel.subNomeText
     }
-    
     var placeholderUserText: String {
         return RegisterModel.placeholderUserText
     }
-    
     var placeholderPwText: String {
         return RegisterModel.placeholderPwText
     }
-    
     var placeholderPwRepeatText: String {
         return RegisterModel.placeholderPwRepeatText
     }
-    
     var registerButtonText: String {
         return RegisterModel.registerButtonText
     }
-    
     var alreadyRegisterLabelText: String {
         return RegisterModel.alreadyRegisterLabelText
     }
-    
     var alreadyRegisterButtonText: String {
         return RegisterModel.alreadyRegisterButtonText
     }
-    
     func invalidUsername(_ value: String) -> String? {
         let regularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regularExpression)
@@ -67,9 +51,7 @@ struct RegisterViewModel {
         }
         return nil
     }
-    
-    func invalidPw(_ value:String) -> String? {
-        
+    func invalidPw(_ value: String) -> String? {
         if value.count < 8 {
             return "Senha precisa conter no mínimo 8 caracteres"
         }
@@ -78,27 +60,20 @@ struct RegisterViewModel {
         }
         return nil
     }
-    
     func containsDigit(_ value: String) -> Bool {
         let regularExpression = ".*[0-9]+.*"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regularExpression)
         return !predicate.evaluate(with: value)
     }
-    
-    
     func validationUser(pwTextField: String, pwRepeatTextField: String) -> String? {
-        
         if pwTextField != pwRepeatTextField {
             return "As senhas não coincidem"
         }
         return nil
     }
-    
     func setUserDefautls(userEmail: String, userPw: String) {
-        
         UserDefaults.standard.set(userEmail, forKey: "userEmail")
         UserDefaults.standard.set(userPw, forKey: "userPw")
-        
         delegate?.showAlertWithPop(title: "Atenção", message: "Cadastro feito com sucesso!", buttonTitle: "Ok")
     }
 }
