@@ -9,7 +9,7 @@ import UIKit
 
 class BeatsCellTableViewCell: UITableViewCell {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     @IBOutlet weak var viewTableCell: UIView!
     @IBOutlet weak var priceLabel: UILabel!
@@ -18,7 +18,7 @@ class BeatsCellTableViewCell: UITableViewCell {
     @IBOutlet weak var rateLabel: UILabel!
     @IBOutlet weak var reviewsLabel: UILabel!
     
-    //MARK: - Methods
+    // MARK: - Methods
     
     var fone: FonesModel? {
         didSet {
@@ -29,6 +29,4 @@ class BeatsCellTableViewCell: UITableViewCell {
             priceLabel.text = fone.price
         }
     }
-
-
 }
