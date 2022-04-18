@@ -10,25 +10,18 @@ import Foundation
 struct DetailsViewModel {
     
     // MARK: - Properties
-    
-    //private var details = DetailsModel()
-    
     var nomeText: String {
         return DetailsModel.nomeText
     }
-    
     var notaText: String {
         return DetailsModel.notaText
     }
-    
     var avaliacaoText: String {
         return DetailsModel.avaliacaoText
     }
-    
     var precoText: String {
         return DetailsModel.precoText
     }
-    
     var buyButtonText: String {
         return DetailsModel.buyButtonText
     }
