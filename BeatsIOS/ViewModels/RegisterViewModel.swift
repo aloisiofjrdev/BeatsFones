@@ -75,4 +75,22 @@ struct RegisterViewModel {
         UserDefaults.standard.set(userPw, forKey: "userPw")
         delegate?.showAlertWithPop(title: "Atenção", message: "Cadastro feito com sucesso!", buttonTitle: "Ok")
     }
+    func pwErrorLabelValidation(pwTextField: String) -> String? {
+        if pwTextField.isEmpty {
+            return ""
+        } else {
+            if let errorMessage = invalidPw(pwTextField) {
+                return errorMessage
+            } else {
+                return nil
+            }
+        }
+    }
+    func isHidddenValidation(pwTextField: String) -> Bool {
+        if invalidPw(pwTextField) != nil {
+            return false
+        } else {
+            return true
+        }
+    }
 }

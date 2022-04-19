@@ -111,16 +111,8 @@ class RegisterViewController: UIViewController {
     }
     @IBAction func pwTextFieldChanged(_ sender: Any) {
         guard let password = pwTextField.text else { return }
-        if password.isEmpty {
-            pwErrorLabel.text = ""
-        } else {
-            if let errorMessage = registerVM.invalidPw(password) {
-                pwErrorLabel.text = errorMessage
-                pwErrorLabel.isHidden = false
-            } else {
-                pwErrorLabel.isHidden = true
-            }
-        }
+        pwErrorLabel.text = registerVM.pwErrorLabelValidation(pwTextField: password)
+        pwErrorLabel.isHidden = registerVM.isHidddenValidation(pwTextField: password)
         checkForValideForm()
     }
     @IBAction func pwRepeatTextFieldChanged(_ sender: Any) {
