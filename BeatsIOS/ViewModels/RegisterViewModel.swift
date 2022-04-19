@@ -93,4 +93,22 @@ struct RegisterViewModel {
             return true
         }
     }
+    func pwRepeatErrorLabelValidation(pwTextField: String, pwRepeatTextField: String) -> String? {
+        if pwRepeatTextField.isEmpty {
+            return ""
+        } else {
+            if let errorMessage = validationUser(pwTextField: pwTextField, pwRepeatTextField: pwRepeatTextField) {
+                return errorMessage
+            } else {
+                return nil
+            }
+        }
+    }
+    func pwRepeatIsHiddenValidation(pwTextFeild: String, pwRepeatTextField: String) -> Bool {
+        if validationUser(pwTextField: pwTextFeild, pwRepeatTextField: pwRepeatTextField) != nil {
+            return false
+        } else {
+            return true
+        }
+    }
 }
