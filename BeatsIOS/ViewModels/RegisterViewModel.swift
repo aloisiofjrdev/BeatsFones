@@ -111,4 +111,22 @@ struct RegisterViewModel {
             return true
         }
     }
+    func userErrorLabelValidation(userTextField: String) -> String? {
+        if userTextField.isEmpty {
+            return ""
+        } else {
+            if let errorMessage = invalidUsername(userTextField) {
+                return errorMessage
+            } else {
+                return nil
+            }
+        }
+    }
+    func userErrorLabelisHidddenValidation(userTextField: String) -> Bool {
+        if invalidUsername(userTextField) != nil {
+            return false
+        } else {
+            return true
+        }
+    }
 }

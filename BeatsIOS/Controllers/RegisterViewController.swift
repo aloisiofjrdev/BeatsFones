@@ -97,16 +97,8 @@ class RegisterViewController: UIViewController {
     // MARK: - Actions
     @IBAction func userTextFieldChanged(_ sender: Any) {
         guard let userName = userTextField.text else { return }
-        if userName.isEmpty {
-            userErrorLabel.text = ""
-        } else {
-            if let errorMessage = registerVM.invalidUsername(userName) {
-                userErrorLabel.text = errorMessage
-                userErrorLabel.isHidden = false
-            } else {
-                userErrorLabel.isHidden = true
-            }
-        }
+        userErrorLabel.text = registerVM.userErrorLabelValidation(userTextField: userName)
+        userErrorLabel.isHidden = registerVM.userErrorLabelisHidddenValidation(userTextField: userName)
         checkForValideForm()
     }
     @IBAction func pwTextFieldChanged(_ sender: Any) {
