@@ -126,10 +126,7 @@ class RegisterViewController: UIViewController {
 }
 
 extension RegisterViewController: RegisterViewModelDelegate {
-    func showAlert(title: String, message: String, buttonTitle: String) {
-        self.displayMyAlertMessage(title: title, message: message, buttonTitle: buttonTitle)
-    }
-    func showAlertWithPop(title: String, message: String, buttonTitle: String) {
-        self.displayMyAlertMessageWithActionPop(title: title, message: message, buttonTitle: buttonTitle)
+    func showAlert(title: String, message: String, buttonTitle: String, pop: Bool) {
+        self.displayMyAlertMessage(title: title, message: message, buttonTitle: buttonTitle, pop: pop)
     }
 }

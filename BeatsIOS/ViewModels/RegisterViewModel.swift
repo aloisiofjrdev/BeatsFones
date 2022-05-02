@@ -8,8 +8,7 @@
 import Foundation
 
 protocol RegisterViewModelDelegate: AnyObject {
-    func showAlert(title: String, message: String, buttonTitle: String)
-    func showAlertWithPop(title: String, message: String, buttonTitle: String)
+    func showAlert(title: String, message: String, buttonTitle: String, pop: Bool)
 }
 
 struct RegisterViewModel {
@@ -73,7 +72,7 @@ struct RegisterViewModel {
     func setUserDefautls(userEmail: String, userPw: String) {
         UserDefaults.standard.set(userEmail, forKey: "userEmail")
         UserDefaults.standard.set(userPw, forKey: "userPw")
-        delegate?.showAlertWithPop(title: "Atenção", message: "Cadastro feito com sucesso!", buttonTitle: "Ok")
+        delegate?.showAlert(title: "Atenção", message: "Cadastro feito com sucesso!", buttonTitle: "Ok", pop: true)
     }
     func pwErrorLabelValidation(pwTextField: String) -> String? {
         if pwTextField.isEmpty {

@@ -107,11 +107,11 @@ class LoginController: UIViewController {
                 UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
                 resetFormulario()
             } else {
-                self.displayMyAlertMessage(title: "Atenção", message: "Senha inválida", buttonTitle: "Ok")
+                self.displayMyAlertMessage(title: "Atenção", message: "Senha inválida", buttonTitle: "Ok", pop: false)
                 return
             }
         } else {
-            self.displayMyAlertMessage(title: "Atenção", message: "E-mail inválido", buttonTitle: "Ok")
+            self.displayMyAlertMessage(title: "Atenção", message: "E-mail inválido", buttonTitle: "Ok", pop: false)
         }
     }
     @IBAction func userTextFieldChange(_ sender: Any) {

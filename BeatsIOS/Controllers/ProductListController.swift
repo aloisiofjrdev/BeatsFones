@@ -79,7 +79,7 @@ extension ProductListController: FonesViewModelDelegate {
     }
     func onError(error: Error) {
         DispatchQueue.main.async {
-            self.displayMyAlertMessage(title: "Ops, ocorreu um erro", message: error.localizedDescription, buttonTitle: "Ok")
+            self.displayMyAlertMessage(title: "Ops, ocorreu um erro", message: error.localizedDescription, buttonTitle: "Ok", pop: false)
         }
     }
 }
