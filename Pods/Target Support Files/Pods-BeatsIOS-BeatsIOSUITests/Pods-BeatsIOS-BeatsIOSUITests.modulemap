@@ -1,0 +1,6 @@
+framework module Pods_BeatsIOS_BeatsIOSUITests {
+  umbrella header "Pods-BeatsIOS-BeatsIOSUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
